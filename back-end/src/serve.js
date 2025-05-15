@@ -1,11 +1,15 @@
+import 'dotenv/config'; 
 import express from 'express';
-import adicionarRotas from './routers';
+import cors from 'cors';
+import adicionarRotas from './routers.js';
 
 const servidor = express();
+servidor.use(express.json());
+servidor.use(cors())
 
 const PORTA = process.env.PORTA
 
-adicionarRotas(servidor)
+adicionarRotas(servidor);
 
 servidor.listen(
     PORTA,

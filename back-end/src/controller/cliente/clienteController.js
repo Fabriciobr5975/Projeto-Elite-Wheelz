@@ -62,9 +62,9 @@ endpoints.get("/cliente", async (req, resp) => {
     }
 }); 
 
-endpoints.get("/cliente/:cpf", async (req, resp) => {
+endpoints.get("/cliente/busca", async (req, resp) => {
     try {
-        const cpf = req.params.cpf;
+        const cpf = req.query.cpf;
         const registro = await buscarClienteCPF(cpf);
 
         resp.send(registro);

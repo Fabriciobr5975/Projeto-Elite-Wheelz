@@ -62,9 +62,9 @@ endpoints.get("/tipoveiculo", async (req, resp) => {
     }
 }); 
 
-endpoints.get("/tipoveiculo/:tipo", async (req, resp) => {
+endpoints.get("/tipoveiculo/busca", async (req, resp) => {
     try {
-        const tipo = req.params.tipo;
+        const tipo = req.query.tipo;
         const registro = await buscarTipoVeiculoService(tipo);
 
         resp.send(registro);

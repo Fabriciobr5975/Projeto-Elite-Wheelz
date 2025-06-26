@@ -1,8 +1,8 @@
-.pagina-controle-cliente {
+.pagina-locacao-veiculo {
   display: flex;
   width: 100%;
 
-  .conteudo-pagina-controle-cliente {
+  .conteudo-pagina-controle-veiculo {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -59,17 +59,58 @@
         }
       }
 
-      .area-listagem-cliente {
+      .area-locacao-veiculo {
         display: flex;
         flex-direction: column;
         gap: 2rem;
         width: 100%;
 
+        .informacao-cliente,
+        .informacao-veiculo {
+          display: flex;
+          width: 100%;
+          align-items: center;
+          gap: 1.5rem;
+          padding-bottom: 0.5rem;
+        }
+
+        .informacao-veiculo {
+          padding-bottom: 1.5rem;
+        }
+
+        .informacoes-adicionas {
+          display: flex;
+          width: 100%;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1.5rem;
+
+          .inputs-informacoes-adicionas {
+            display: inherit;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+
+            .input-checkbox {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              width: 100%;
+              gap: 0.55rem;
+            }
+          }
+
+          textarea {
+            width: 45%;
+          }
+        }
+
         .cabecalho-listagem {
           width: 45%;
         }
 
-        .listagem-cliente {
+        .listagem-veiculo {
           width: 100%;
 
           table {
@@ -79,10 +120,14 @@
             font: 500 1rem / normal "Poppins";
 
             .campo-tabela {
-              width: 22.5%;
+              width: 20%;
             }
 
-            .edicao-cliente {
+            .botao-tabela {
+              width: 10%;
+            }
+
+            .edicao-veiculo {
               width: 10%;
             }
 
@@ -93,6 +138,15 @@
               padding: 1.05rem;
               color: #3a4163;
               font: 600 0.9rem "Arial";
+
+              button {
+                font: 500 0.8rem "Arial";
+                color: #fff;
+                border: none;
+                padding: 0.5rem 0.8rem;
+                border-radius: 0.5rem;
+                background-color: #8500c7;
+              }
             }
 
             td {
@@ -115,11 +169,11 @@
         display: inline-flex;
         flex-direction: column;
         gap: 1rem;
-        width: 45%;
+        width: 70%;
 
         button {
           width: 45%;
-          background-color: #8500c7;
+           background-color: #8500c7;
           color: #fff;
           padding: 14px 30px;
           border-radius: 3px;

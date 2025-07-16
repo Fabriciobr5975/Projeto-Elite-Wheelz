@@ -2,7 +2,7 @@ import inserirVeiculoService from "../../service/veiculo/inserirVeiculoService.j
 import alterarVeiculoService from "../../service/veiculo/alterarVeiculoService.js";
 import removerVeiculoService from "../../service/veiculo/removerVeiculoService.js";
 import listarVeiculoService from "../../service/veiculo/listarVeiculoService.js";
-import buscarVeiculoPorPlacaService from "../../service/veiculo/buscarVeiculoPorPlacaService.js";
+import buscarVeiculoPorCaracteristicaService from "../../service/veiculo/buscarVeiculoPorCaracteristicaService.js";
 
 import { Router } from "express";
 
@@ -62,10 +62,10 @@ endpoints.get("/veiculo", async (req, resp) => {
     }
 }); 
 
-endpoints.get("/veiculo/:placa", async (req, resp) => {
+endpoints.get("/veiculo/busca", async (req, resp) => {
     try {
-        const placa = req.params.placa;
-        const registro = await buscarVeiculoPorPlacaService(placa);
+        const caracteristica = req.query.caracteristica;
+        const registro = await buscarVeiculoPorCaracteristicaService(caracteristica);
 
         resp.send(registro);
     } catch (err) {

@@ -101,15 +101,16 @@
         }
 
         button {
-          margin-top: 2rem;
-          width: 45%;
+          margin-top: 1rem;
+          width: 30%;
           background-color: #8500c7;
           color: #fff;
-          padding: 14px 30px;
-          border-radius: 3px;
+          padding: .875rem 1.875rem;
+          border-radius: .2rem;
           font: 500 20px "Poppins";
           outline: none;
           border: none;
+          cursor: pointer;
         }
       }
 

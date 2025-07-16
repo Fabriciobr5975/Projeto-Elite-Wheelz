@@ -2,7 +2,7 @@ import inserirClienteService from "../../service/cliente/inserirClienteService.j
 import alterarClienteService from "../../service/cliente/alterarClienteService.js";
 import removerClienteService from "../../service/cliente/removerClienteService.js";
 import listarClienteService from "../../service/cliente/listarClienteService.js";
-import buscarClienteCPF from "../../service/cliente/buscarClienteCPF.js";
+import buscarClienteNome from "../../service/cliente/buscarClienteNome.js";
 
 import { Router } from "express";
 
@@ -64,8 +64,8 @@ endpoints.get("/cliente", async (req, resp) => {
 
 endpoints.get("/cliente/busca", async (req, resp) => {
     try {
-        const cpf = req.query.cpf;
-        const registro = await buscarClienteCPF(cpf);
+        const nome = req.query.nome;
+        const registro = await buscarClienteNome(nome);
 
         resp.send(registro);
     } catch (err) {

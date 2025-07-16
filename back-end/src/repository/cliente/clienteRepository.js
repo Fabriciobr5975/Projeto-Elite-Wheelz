@@ -56,10 +56,10 @@ export async function listarCliente() {
   return registro;
 }
 
-export async function buscarClientePorCpf(cpf) {
-  const comando = `SELECT * FROM tb_cliente WHERE DS_CPF = ?`;
+export async function buscarClientePorNome(nome) {
+  const comando = `SELECT * FROM tb_cliente WHERE NM_CLIENTE LIKE ?`;
 
-  const [registro] = await connection.query(comando, [cpf]);
+  const [registro] = await connection.query(comando, [`%${nome}%`]);
 
   return registro;
 }

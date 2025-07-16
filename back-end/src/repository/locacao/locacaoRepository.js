@@ -17,7 +17,7 @@ export async function inserirLocacao(locacao) {
     locacao.cliente,
     locacao.veiculo,
     locacao.km_retirada,
-    locacao.locacao,
+    locacao.data_locacao,
     locacao.seguro,
     locacao.observacoes,
     locacao.situacao,
@@ -68,17 +68,17 @@ export async function deletarLocacao(id) {
 }
 
 export async function listarLocacao() {
-  const comando = `SELECT * FROM TB_LOCACAO`;
+  const comando = `SELECT * FROM view_locacao`;
 
   const [registro] = await connection.query(comando);
 
   return registro;
 }
 
-export async function buscarLocacaoPorVeiculo(veiculo) {
-  const comando = `SELECT * FROM TB_LOCACAO WHERE ID_VEICULO = ?`;
+export async function buscarLocacaoPorCliente(cliente) {
+  const comando = `SELECT * FROM view_locacao WHERE CONCAT(NM_CLIENTE, DS_CPF) LIKE ?`;
 
-  const [registro] = await connection.query(comando, [veiculo]);
+  const [registro] = await connection.query(comando, [`%${cliente}%`]);
 
   return registro;
 }

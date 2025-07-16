@@ -2,7 +2,7 @@ import inserirLocacaoSerivce from "../../service/locacao/inserirLocacaoSerivce.j
 import alterarLocacaoService from "../../service/locacao/alterarLocacaoService.js";
 import removerLocacaoService from "../../service/locacao/removerLocacaoService.js";
 import listarLocacaoService from "../../service/locacao/listarLocacaoService.js";
-import buscarLocacaoPorVeiculo from "../../service/locacao/buscarLocacaoPorVeiculo.js";
+import buscarLocacaoPorClienteService from "../../service/locacao/buscarLocacaoPorClienteService.js";
 
 import { Router } from "express";
 
@@ -62,10 +62,10 @@ endpoints.get("/locacao", async (req, resp) => {
     }
 }); 
 
-endpoints.get("/locacao/:veiculo", async (req, resp) => {
+endpoints.get("/locacao/busca/cliente", async (req, resp) => {
     try {
-        const veiculo = req.params.veiculo;
-        const registro = await buscarLocacaoPorVeiculo(veiculo);
+        const cliente = req.query.cliente;
+        const registro = await buscarLocacaoPorClienteService(cliente);
 
         resp.send(registro);
     } catch (err) {

@@ -7,7 +7,7 @@ export async function inserirVeiculo(veiculo) {
                         DS_MARCA,
                         DS_PLACA,
                         NR_ANO)
-                    VALUES (?,?,?,?,?)`;
+                    VALUES ((SELECT ID_TIPO_VEICULO from tb_tipo_veiculo WHERE DS_TIPO = ?),?,?,?,?)`;
   const [respota] = await connection.query(comando, [
     veiculo.tipo,
     veiculo.modelo,
@@ -21,7 +21,7 @@ export async function inserirVeiculo(veiculo) {
 
 export async function alterarVeiculo(veiculo, id) {
   const comando = `UPDATE tb_veiculo SET
-                        ID_TIPO_VEICULO = ?,
+                        ID_TIPO_VEICULO = (SELECT ID_TIPO_VEICULO from tb_tipo_veiculo WHERE DS_TIPO = ?),
                         DS_MODELO = ?,
                         DS_MARCA = ?,
                         DS_PLACA = ?,
@@ -48,17 +48,18 @@ export async function deletarVeiculo(id) {
 }
 
 export async function listarVeiculo() {
-  const comando = `SELECT * FROM tb_veiculo`;
+  const comando = `SELECT * FROM view_veiculo`;
 
   const [registro] = await connection.query(comando);
 
   return registro;
 }
 
-export async function buscarVeiculoPorPlaca(placa) {
-  const comando = `SELECT * FROM tb_veiculo WHERE DS_PLACA = ?`;
+export async function buscarVeiculoPorCaracteristica(caracterestica) {
+  const comando = `SELECT * FROM view_veiculo
+                   WHERE CONCAT(DS_MARCA, DS_MODELO, DS_PLACA) LIKE ?`;
 
-  const [registro] = await connection.query(comando, [placa]);
+  const [registro] = await connection.query(comando, [`%${caracterestica}%`]);
 
   return registro;
 }

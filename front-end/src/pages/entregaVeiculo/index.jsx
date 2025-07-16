@@ -52,7 +52,6 @@ export default function EntregaVeiculo() {
                   </p>
                 </div>
               </div>
-              <button>Salvar</button>
             </div>
 
             <div className="finalizacao-locacao">

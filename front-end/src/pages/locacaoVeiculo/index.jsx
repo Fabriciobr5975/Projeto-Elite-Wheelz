@@ -5,6 +5,7 @@ import InputPadrao from "../../components/inputPadrao";
 
 import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function LocacaoVeiculo() {
   const [buscaCliente, setBuscaCliente] = useState("");
@@ -16,6 +17,8 @@ export default function LocacaoVeiculo() {
   const [locacao, setLocacao] = useState({ seguro: false });
   const [listaLocacao, setListaLocacao] = useState([]);
   const [clienteBuscaListagem, setClienteBuscaListagem] = useState("");
+
+  const navigate = useNavigate();
 
   const buscarClientes = useCallback(async () => {
     try {
@@ -134,6 +137,11 @@ export default function LocacaoVeiculo() {
       setBuscaCliente("");
       setBuscaVeiculo("");
     }
+  };
+
+  const concluirLocacao = async (item) => {
+    navigate("/teste", {
+      state: { item }});
   };
 
   useEffect(() => {
@@ -323,7 +331,7 @@ export default function LocacaoVeiculo() {
                           </td>
                           <td>{(item.DT_LOCACAO)}</td>
                           <td>
-                            <button>Concluir</button>
+                            <button onClick={() => concluirLocacao(item)}>Concluir</button>
                           </td>
                           <td>
                             <div className="icones-tabela">

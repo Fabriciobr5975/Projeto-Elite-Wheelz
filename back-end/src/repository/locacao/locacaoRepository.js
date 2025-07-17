@@ -40,13 +40,13 @@ export async function alterarLocacao(locacao, id) {
                         DS_SITUACAO = ?,
                         NR_KM_ENTREGA = ?,
                         DT_ENTREGA = ?,
-                        VL_TOTAL = ?
+                        VL_TOTAL = ?  
                     WHERE ID_LOCACAO = ?`;
   const [respota] = await connection.query(comando, [
     locacao.cliente,
     locacao.veiculo,
     locacao.km_retirada,
-    locacao.locacao,
+    locacao.data_locacao,
     locacao.seguro,
     locacao.observacoes,
     locacao.situacao,

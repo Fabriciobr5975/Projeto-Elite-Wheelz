@@ -26,6 +26,22 @@
   - Listar as locação;
   - Buscar as locação com filtros; 
 
+## Como rodar o projeto 🚘
+
+> Para rodar esse projeto você terá que ter o React, o Node e o MySQL instalado
+
+Primeiro crie o banco de dados e suas tabelas, o arquivo sql está dentro de back-end. Depois de os seguintes comandos
+
+```bash
+cd Projeto/back-end
+npm i
+npm start
+
+cd front-end
+npm i
+npm start
+````
+
 ## Ferramentas e Tecnologias Usadas ⚒️
 <div align="center" > 
   <a href="https://logospng.org" target="_blank"><img src="https://logospng.org/download/visual-studio-code/visual-studio-code-4096.png" alt="Logo do Visual Studio Code" width="90" height="90"/></a>
@@ -36,5 +52,5 @@
 </div>
 
 ## 
-<h4 align="center">Feito por <a tex href="https://github.com/Fabriciobr5975"> Fabrício de Araújo Santana</a></h4>
+<h4 align="center">Feito por <a tex href="https://github.com/Fabriciobr5975"> Fabrício de Araújo Santana</a> e <a href="https://github.com/Ruanlv"> Ruan Lopes Viana</a></h4>
 
